@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
         referesh_token: { type: DataTypes.TEXT, allowNull: true },
         token_expired_at: { type: DataTypes.DATE, allowNull: true },
         token_revoked: { type: DataTypes.TINYINT, defaultValue: 0, allowNull: true },
-        user_device_info: { type: DataTypes.JSON, allowNull: true },
     }, {
         timestamps: true,
         hooks: {
@@ -27,5 +26,5 @@ module.exports = (sequelize, DataTypes) => {
         });
     };
 
-    return Users; // Make sure to return the model
+    return Users;
 };

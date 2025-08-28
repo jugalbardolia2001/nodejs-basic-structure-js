@@ -10,7 +10,7 @@ const RefereshTokenGenarate = async (user) => {
         created_at: user.created_at,
         updated_at: user.updated_at,
       };
-    const referesh_token = jwt.sign({payload},process.env.REFRESH_TOKEN_SECRET,{ expiresIn:'7d'})                
+    const referesh_token = jwt.sign(payload,process.env.REFRESH_TOKEN_SECRET,{ expiresIn:'7d'})                
     //save in database and return referesh token
     await models.Users.update({referesh_token}, {where: {user_id: user.user_id}})
     return referesh_token
@@ -23,7 +23,7 @@ const AccessTokenGenarate = async (user) => {
         created_at: user.created_at,
         updated_at: user.updated_at,
       };
-    const access_token = jwt.sign({payload},process.env.ACCESS_TOKEN_SECRET,{expiresIn:'2m'})
+    const access_token = jwt.sign(payload,process.env.ACCESS_TOKEN_SECRET,{expiresIn:'2m'})
     return access_token
 }
 

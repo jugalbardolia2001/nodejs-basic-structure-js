@@ -16,7 +16,8 @@ const validateAccessToken = (req, res, next) => {
     if (!decoded) {
       return res.status(400).send({ message: "invalid token" });
     }
-    req.user = decoded;
+     req.user_id = decoded.user_id;
+     req.user = decoded; 
     next();
   } catch (error) {
     if(error.name === 'TokenExpiredError'){
@@ -44,7 +45,8 @@ const validateRefereshToken = (req,res,next) => {
         if(!decoded){
             return res.status(400).send({message : "token invalid"})
         }
-        req.user = decoded
+      req.user_id = decoded.user_id;
+      req.user = decoded; 
         next()
     } catch (error) {
         if(error.name === 'TokenExpiredError'){

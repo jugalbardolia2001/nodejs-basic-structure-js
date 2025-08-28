@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
         title: { type: DataTypes.STRING },
         description: { type: DataTypes.STRING },
         is_deleted: { type: DataTypes.TINYINT, defaultValue: 0 },
-        // created_by: { type: DataTypes.STRING },
+        created_by: { type: DataTypes.STRING },
     }, {
         timestamps: true,
     });
@@ -16,5 +16,5 @@ module.exports = (sequelize, DataTypes) => {
         });
     };
 
-    return userblogs; // Must return the model here
+    return userblogs; 
 };
